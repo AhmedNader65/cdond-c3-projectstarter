@@ -367,7 +367,7 @@ workflows:
           filters:
             branches:
               only: [dev-branch]
-      - deploy-infrastructures
+      - deploy-infrastructure
       - configure-infrastructure:
           requires: [deploy-infrastructure]
       - run-migrations:
