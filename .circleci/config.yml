@@ -1,7 +1,35 @@
 version: 2.1
 
 commands:
-            
+  destroy-environment:
+    description: Destroy back-end and front-end cloudformation stacks given a workflow ID.
+    parameters:
+      # Add parameter here   
+    steps:
+      - run:
+          name: Destroy environments
+          when: on_fail
+          command: |
+            aws s3 rm "s3://udapeople-${CIRCLE_WORKFLOW_ID:0:7}" --recursive
+            aws cloudformation delete-stack --stack-name udapeople-frontend-${CIRCLE_WORKFLOW_ID:0:7}
+            aws cloudformation delete-stack --stack-name udapeople-backend-${CIRCLE_WORKFLOW_ID:0:7}
+  
+  revert-migrations:
+    description: Revert the last migration if successfully run in the current workflow.
+    parameters:
+      # Add parameter here     
+    steps:
+      - run:
+          name: Revert migrations
+          when: on_fail
+          command: |
+            SUCCESS=$(curl "https://kvdb.io/UY8HEmETno9p44hJPWTd6y/migration_${CIRCLE_WORKFLOW_ID:0:7}")
+            if(( $SUCCESS==1 ))
+            then
+              cd ~/project/backend
+              npm install
+              npm run migrations:revert
+            fi     
 jobs:
   build-frontend:
     docker:
@@ -92,7 +120,6 @@ jobs:
             npm audit fix --audit-level=critical --force
             npm audit fix --force
             npm audit --audit-level=critical
-
   deploy-infrastructure:
     docker:
       - image: amazon/aws-cli
@@ -278,6 +305,11 @@ jobs:
       - revert-migrations
       # Here's where you will add some code to rollback on failure  
   
+  revert:
+    docker:
+      - image: alpine:latest
+    steps:
+      - revert-migrations # this pulls code down from GitHub
   sleep_60:
     docker:
       - image: alpine:latest
