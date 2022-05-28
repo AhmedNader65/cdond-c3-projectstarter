@@ -365,8 +365,9 @@ jobs:
           command: |
             yum install -y tar
             yum install -y gzip
+            yum install -y gcc-c++ make 
+            curl -sL https://rpm.nodesource.com/setup_14.x | bash - 
             yum install -y nodejs
-            yum install -y npm
       - attach_workspace:
           at: ~/
       - run:
@@ -391,8 +392,9 @@ jobs:
           command: |
             yum install -y tar
             yum install -y gzip
+            yum install -y gcc-c++ make 
+            curl -sL https://rpm.nodesource.com/setup_14.x | bash - 
             yum install -y nodejs
-            yum install -y npm
       - attach_workspace:
           at: ~/
       - run:
