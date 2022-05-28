@@ -1,5 +1,8 @@
 version: 2.1
 
+
+orbs:
+  shellcheck: circleci/shellcheck@x.y.z
 commands:
   destroy-environment:
     description: Destroy back-end and front-end cloudformation stacks given a workflow ID.
