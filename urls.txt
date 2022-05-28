@@ -1,2 +1,2 @@
 [URL01] -> https://github.com/AhmedNader65/cdond-c3-projectstarter
-[URL02] -> http://udapeople-65c77db.s3-website-us-east-1.amazonaws.com/
+[URL02] -> http://udapeople-6e8f903.s3-website-us-east-1.amazonaws.com
