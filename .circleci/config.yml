@@ -363,9 +363,10 @@ jobs:
       - run:
           name: install dependencies
           command: |
-            apk add --update tar
-            apk add --update gzip
-            apk add --update nodejs npm
+            yum -y tar
+            yum -y gzip
+            yum -y nodejs
+            yum -y npm
       - attach_workspace:
           at: ~/
       - run:
@@ -388,9 +389,10 @@ jobs:
       - run:
           name: install dependencies
           command: |
-            apk add --update tar
-            apk add --update gzip
-            apk add --update nodejs npm
+            yum -y tar
+            yum -y gzip
+            yum -y nodejs
+            yum -y npm
       - attach_workspace:
           at: ~/
       - run:
