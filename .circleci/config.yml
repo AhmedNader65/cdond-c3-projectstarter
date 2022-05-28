@@ -319,7 +319,7 @@ jobs:
       - run: sleep 60;
   smoke-test:
     docker:
-      - image: alpine:latest
+      - image: python:3.7-alpine3.11
     steps:
       - checkout
       - run:
