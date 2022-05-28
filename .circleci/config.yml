@@ -416,6 +416,7 @@ workflows:
       #     requires: [run-migrations]
       # - sleep_60:
       #     requires: [deploy-backend,deploy-frontend]
+      - shellcheck/check # job defined within the orb so no further config necessary
       - smoke-test:
           requires:
             - shellcheck/check
