@@ -326,6 +326,7 @@ jobs:
           name: Install dependencies
           command: |
             apk add --no-cache bash
+            return 1
             # apk add --update tar gzip curl
             # pip install awscli
       # - run:
