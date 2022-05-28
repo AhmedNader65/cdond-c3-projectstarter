@@ -360,6 +360,12 @@ jobs:
       - image: amazon/aws-cli
     steps:
       - checkout
+      - run:
+          name: install dependencies
+          command: |
+            apk add --update tar
+            apk add --update gzip
+            apk add --update nodejs npm
       - attach_workspace:
           at: ~/
       - run:
@@ -379,6 +385,12 @@ jobs:
       - image: amazon/aws-cli
     steps:
       - checkout
+      - run:
+          name: install dependencies
+          command: |
+            apk add --update tar
+            apk add --update gzip
+            apk add --update nodejs npm
       - attach_workspace:
           at: ~/
       - run:
