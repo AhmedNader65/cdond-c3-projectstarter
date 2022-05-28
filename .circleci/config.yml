@@ -380,6 +380,7 @@ jobs:
             export OldWorkflowID=${OldWorkflow#"udapeople-"}
     
             echo OldWorkflowID: "${OldWorkflowID}"
+            echo CIRCLE_WORKFLOW_ID: "${CIRCLE_WORKFLOW_ID:0:7}"
       - run:
           name: Update cloudfront distribution
           command: |
@@ -407,7 +408,6 @@ jobs:
             yum install -y nodejs
       - attach_workspace:
           at: ~/
-            echo CIRCLE_WORKFLOW_ID: "${CIRCLE_WORKFLOW_ID:0:7}"
       - run:
           name: Remove old stacks and files
           command: |
