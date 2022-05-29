@@ -388,8 +388,8 @@ jobs:
                     --parameter-overrides WorkflowID="udapeople-${CIRCLE_WORKFLOW_ID:0:7}" \
                     --tags project=udapeople
       - persist_to_workspace:
-        root: ~/
-        paths: old_workflow_id.txt
+          root: ~/
+          paths: old_workflow_id.txt
 
       # Here's where you will add some code to rollback on failure  
       - destroy-environment
