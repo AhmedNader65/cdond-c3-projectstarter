@@ -1,3 +1,5 @@
 [URL01] -> https://github.com/AhmedNader65/cdond-c3-projectstarter
-[URL02] -> http://udapeople-6e8f903.s3-website-us-east-1.amazonaws.com
+[URL02] -> http://udapeople-696fd13.s3-website-us-east-1.amazonaws.com/
 [URL03] -> d1fl2yhup9l6ew.cloudfront.net
+[URL04] -> http://ec2-54-175-244-37.compute-1.amazonaws.com:3030/api/status
+[URL05] -> http://ec2-54-152-227-82.compute-1.amazonaws.com:9090/targets
